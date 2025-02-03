@@ -1,37 +1,23 @@
-//O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
-let amigos = []; //variável para armazenas os nomes dos amigos que forem sendo adicionados através do input
+let amigos = [];
 
-//Tarefa 1 
-//Implementar uma função para adicionar amigos
 function adicionarAmigo() {
-  //capturo o elemento Dom 
   let inputAmigo = document.getElementById('amigo');
-  //capturo agora o valor do campo
   let nomeAmigo = inputAmigo.value;
-  //console.log(nomeAmigo);
 
-  //validar a entrada para garantir que o campo não esteja vazio 
   if (!nomeAmigo) {
     alert("Por favor, insira um nome.");
   }
-  //adiciono o nome do amigo ao array
   amigos.push(nomeAmigo);
   atualizarListaAmigos();
 
-  //limpo o campo de input
   inputAmigo.value = '';
-  //console.log(amigos);
 }
 
-//Tarefa 2: Atualizar a lista de amigos 
 function atualizarListaAmigos() {
-  //Selecionando a lista onde os amigos serão exibidos
   let lista = document.getElementById('listaAmigos');
 
-  //evita duplicados
   lista.innerHTML = '';
 
-  //loop percorrendo o array
   amigos.forEach(amigo => {
     const li = document.createElement('li');
     li.textContent = amigo;
@@ -39,16 +25,12 @@ function atualizarListaAmigos() {
   })
 }
 
-//Tarefa 3: Sortear os amigos
 function sortearAmigo() {
-  //verificando se o array está vazio ou não
   if (amigos.length === 0) {
     alert('A lista de amigos está vazia.');
     return;
   }
-
-  //gerando índice aleatório
   let indice = Math.floor(Math.random() * amigos.length);
   let nomeSorteado = amigos[indice];
-  document.getElementById('resultado').innerHTML = nomeSorteado;
+  document.getElementById('resultado').innerHTML = 'Seu amigo secreto é: ' + nomeSorteado;
 }
