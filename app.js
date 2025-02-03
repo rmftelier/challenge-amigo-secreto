@@ -38,3 +38,17 @@ function atualizarListaAmigos() {
     lista.appendChild(li);
   })
 }
+
+//Tarefa 3: Sortear os amigos
+function sortearAmigo() {
+  //verificando se o array está vazio ou não
+  if (amigos.length === 0) {
+    alert('A lista de amigos está vazia.');
+    return;
+  }
+
+  //gerando índice aleatório
+  let indice = Math.floor(Math.random() * amigos.length);
+  let nomeSorteado = amigos[indice];
+  document.getElementById('resultado').innerHTML = nomeSorteado;
+}
