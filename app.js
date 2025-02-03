@@ -8,7 +8,7 @@ function adicionarAmigo() {
   let inputAmigo = document.getElementById('amigo');
   //capturo agora o valor do campo
   let nomeAmigo = inputAmigo.value;
-  console.log(nomeAmigo);
+  //console.log(nomeAmigo);
 
   //validar a entrada para garantir que o campo não esteja vazio 
   if (!nomeAmigo) {
@@ -16,9 +16,25 @@ function adicionarAmigo() {
   }
   //adiciono o nome do amigo ao array
   amigos.push(nomeAmigo);
+  atualizarListaAmigos();
 
   //limpo o campo de input
   inputAmigo.value = '';
-  console.log(amigos);
+  //console.log(amigos);
 }
 
+//Tarefa 2: Atualizar a lista de amigos 
+function atualizarListaAmigos() {
+  //Selecionando a lista onde os amigos serão exibidos
+  let lista = document.getElementById('listaAmigos');
+
+  //evita duplicados
+  lista.innerHTML = '';
+
+  //loop percorrendo o array
+  amigos.forEach(amigo => {
+    const li = document.createElement('li');
+    li.textContent = amigo;
+    lista.appendChild(li);
+  })
+}
